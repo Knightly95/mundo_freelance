@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mundo_freelance">
 <head>
 	<meta charset="UTF-8">
 	<title>Mundo Freelance</title>
@@ -7,8 +7,10 @@
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/angular.min.js"></script>
+	<script src="js/app.js"></script>
 </head>
-<body>
+<body ng-controller="main">
 
 <nav class="navbar navbar-default">
   <div class="container">
@@ -24,14 +26,32 @@
       <ul class="nav navbar-nav">
         <li class="dropdown btn btn-default mark-button">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+          <ul class="dropdown-menu dropdown-new text-center">
+            <li class="text-center li-container">
+            	<div class="li-img"><img src="assets/img/icon1.png" alt=""></div>
+            	<a href="#">COMO FUNCIONA</a>
+            </li>
+            <li class="text-center li-container">
+            	<div class="li-img"><img src="assets/img/icon2.png" alt=""></div>
+            	<a href="#">COMIENZA TU PROYECTO</a>
+            </li>
+            <li class="text-center li-container">
+            	<div class="li-img"><img src="assets/img/icon3.png" alt=""></div>
+            	<a href="#">TRABAJAR COMO FREELANCE</a>
+            </li>
+            <li class="text-center li-container" ng-click="showAboutUs()">
+            	<div class="li-img"><img src="assets/img/icon4.png" alt=""></div>
+            	<a href="#">SOBRE NOSOTROS</a>
+            </li>
+            <li class="text-center li-container">
+            	<div class="li-img"><img src="assets/img/icon4.png" alt=""></div>
+            	<a href="#">TERMINOS Y CONDICIONES</a>
+            </li>
+            <!--
+            <div class="menu-end">
+            	<br>
+            </div>
+            -->
           </ul>
         </li>
         <li class="btn btn-default mark-button networks">
@@ -69,6 +89,30 @@
 	</div>
 	<a class="left carousel-control" href="#myCarousel" data-slide="prev"></a>
 	<a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
+</div>
+
+<div class="aboutus-info container" ng-if="aboutus === true">
+
+	<div class="container">
+		<div class="col-sm-6 upper-aboutus">
+			<div class="col-sm-6 inner-about">
+				<img src="assets/aboutus/control.png" alt="" class="img img-responsive about-upper-img">
+			</div>
+			<img  class="arrow-upper-about" src="assets/aboutus/arrow-left.png" alt="" class="img img-responsive">
+			<div class="col-sm-6">
+			</div>
+		</div>
+		<div class="col-sm-6 upper-aboutus">
+			<div class="col-sm-6 inner-about">
+				<img src="assets/aboutus/reduccion.png" alt="" class="img img-responsive about-upper-img">
+			</div>
+			<img  class="arrow-upper-about" src="assets/aboutus/arrow-left.png" alt="" class="img img-responsive">
+			<div class="col-sm-6">
+				
+			</div>
+		</div>
+	</div>
+	
 </div>
 
 <div class="contact-info container">
