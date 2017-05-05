@@ -178,28 +178,75 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	background-color: #3f3e40;
 	min-width: 100%;
 }
-.aboutus-info > .container {
+.aboutus-info > .container.n1 {
 	padding: 25px 100px;
+}
+.aboutus-info > .container.n2 {
+	padding: 0px 100px 25px 100px;
+}
+.container.n1, .container.n2 {
+	font-size: 13px;
+	text-align: justify;
 }
 .about-upper-img{
 	height: 200px;
-	width: 200px;
+	width: 100%;
 }
-.upper-aboutus{
+.about-right-img{
+	height: 150px;
+	width: 100%;
+}
+.upper-aboutus, .lower-right-aboutus{
 	background-color: #e1b972;
     padding: 0px;
 }
-.upper-aboutus > .inner-about {
+.lower-aboutus{
+	padding: 0px;
+}
+.upper-aboutus > .inner-about, .lower-right-aboutus  > .inner-about {
 	padding:0px !important;
 }
 @media (min-width: 768px){
-	.col-sm-6 {
+	.col-sm-6.upper-aboutus {
+	    width: 48%;
+    	margin-right: 2%;
+	}
+	.col-sm-8.upper-aboutus {
+	    width: 62%;
+    	margin-right: 2%;
+	}
+	.col-sm-4.upper-aboutus {
+	    width: 30%;
+    	margin-right: 2%;
+	}
+	.inner-upper {
+		width: 98%;
+    	margin-right: 2%;
+		margin-bottom:10px;
+		background-color: #e1b972;
+		padding: 0px;
+	}
+	.inner-lower {
+		background-color: #e1b972;
+		padding: 0px;
+	}
+	.lower-right-aboutus {
+		width: 30%;
+    	margin-left: 1.2%;
+	}
+	.col-sm-6.inner-lower {
 	    width: 48%;
     	margin-right: 2%;
 	}
 }
+
 .arrow-upper-about {
     position: absolute;
-    top: 50px;
-    left: 185px;
+    top: 30px;
+    right: -2px;
+}
+.arrow-right-about {
+    position: absolute;
+	bottom: -1px;
+    left: 50px;
 }
