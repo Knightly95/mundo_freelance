@@ -1,0 +1,40 @@
+<div class="container text-center">
+	<h2>REGISTRATE EN MUNDO FREELANCE</h2>
+	<div class="gris-oscuro2">
+		<div class="gris-claro">
+			<div class="how">
+				<button class="btn btn-default mark-button" style="width:200px"> 
+					COMO FREELANCER
+				</button>
+				<button class="btn btn-default mark-button" style="width:200px">
+					COMO CLIENTE
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="gris-oscuro2">
+		<div class="gris-claro">
+			<div class="selects">
+			<select ng-model="tipo" ng-options="option.name for option in options1 track by option.id"></select>
+			<select ng-model="clase" ng-options="option.name for option in options2 track by option.id"></select>
+		</div>
+		</div>
+	</div>
+	<div class="gris-oscuro2">
+		<div class="gris-claro">
+			<input type="text" class="input-ingreso" placeholder="E-mail*">
+			<input type="text" class="input-ingreso" placeholder="Nombre*">
+			<input type="text" class="input-ingreso" placeholder="Empresa*">
+			<input type="text" class="input-ingreso" placeholder="Telefono*">
+		</div>
+	</div>
+	<div class="gris-oscuro2">
+		<div class="gris-claro">
+			<input type="text" class="input-ingreso" placeholder="Tipo de Proyecto*">
+			<input type="text" class="input-ingreso" placeholder="Servicio a Contratar*">
+			<input type="text" class="input-ingreso" placeholder="Calidad*">
+			<textarea  class="input-ingreso" placeholder="Descripcion*"></textarea>
+		</div>
+	</div>
+	<input type="submit" style="margin-top: 30px;border-radius:6px;width: 100px;" class="btn btn-default mark-button" value="Ingresar">
+</div>
