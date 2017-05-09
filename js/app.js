@@ -27,6 +27,18 @@ var app = angular.module("mundo_freelance",['ui.router'])
 	{"id":"1", "name":"Clase C (Medio)"},
 	{"id":"1", "name":"Clase D (Baja)"}
 	];
+  $scope.paso = 0;
+  $scope.como = "";
+  $scope.siguiente =function (){
+    $scope.paso += 1;
+  };
+  $scope.anterior =function (){
+    $scope.paso -= 1;
+  };
+  $scope.setComo = function(string){
+    $scope.paso = 1;
+    $scope.como = string;
+  };
 }])
 .config(["$stateProvider","$urlRouterProvider",
 	function($stateProvider, $urlRouterProvider) {

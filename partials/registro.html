@@ -1,40 +1,398 @@
-<div class="container text-center">
-	<h2>REGISTRATE EN MUNDO FREELANCE</h2>
-	<div class="gris-oscuro2">
-		<div class="gris-claro">
+<div class="container">
+	<div id="tittles">
+		<h2 ng-show="paso === 0" style="text-align: center">REGISTRARSE COMO:</h2>
+		<h2 ng-show="paso > 0 && como === 'cliente'" style="text-align: center">REGISTRO DEL CLIENTE</h2>
+		<h2 ng-show="paso === 1 && como === 'cliente'" style="text-align: center">INFORMACION GENERAL</h2>
+		<h2 ng-show="paso === 2 && como === 'cliente'" style="text-align: center">INFORMACION DEL PROYECTO</h2>
+		<h2 ng-show="paso > 0 && como === 'freelancer'" style="text-align: center">REGISTRO DEL DISEÑADOR</h2>
+		<h2 ng-show="(paso === 1 || paso === 2) && como === 'freelancer'" style="text-align: center">INFORMACION GENERAL</h2>
+		<h2 ng-show="paso === 3 && como === 'freelancer'" style="text-align: center">HABILIDADES TECNICAS:</h2>
+		<h2 ng-show="paso === 4 && como === 'freelancer'" style="text-align: center">EXPERIENCIA</h2>
+		<h2 ng-show="paso === 5 && como === 'freelancer'" style="text-align: center">OTROS DATOS</h2>
+		<h2 ng-show="paso === 6 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 1 (OBLIGATORIO)</h2>
+		<h2 ng-show="paso === 7 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 2 (OBLIGATORIO)</h2>
+		<h2 ng-show="paso === 8 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 3</h2>
+	</div>
+	<div class="reg-wrapper plomo2" ng-show="paso === 0">
+		<div class="inner-wrapper gris">
 			<div class="how">
-				<button class="btn btn-default mark-button" style="width:200px"> 
+				<button ng-click="setComo('freelancer')" class="btn btn-default mark-button" style="width:200px"> 
 					COMO FREELANCER
 				</button>
-				<button class="btn btn-default mark-button" style="width:200px">
+				<button ng-click="setComo('cliente')" class="btn btn-default mark-button" style="width:200px">
 					COMO CLIENTE
 				</button>
 			</div>
 		</div>
 	</div>
-	<div class="gris-oscuro2">
-		<div class="gris-claro">
-			<div class="selects">
-			<select ng-model="tipo" ng-options="option.name for option in options1 track by option.id"></select>
-			<select ng-model="clase" ng-options="option.name for option in options2 track by option.id"></select>
-		</div>
-		</div>
-	</div>
-	<div class="gris-oscuro2">
-		<div class="gris-claro">
-			<input type="text" class="input-ingreso" placeholder="E-mail*">
-			<input type="text" class="input-ingreso" placeholder="Nombre*">
-			<input type="text" class="input-ingreso" placeholder="Empresa*">
-			<input type="text" class="input-ingreso" placeholder="Telefono*">
+	<div class="reg-wrapper plomo2">
+		<div class="inner-wrapper gris">
+			<div class="mid col-sm-6">		
+				<select class="input-ingreso" id="animator" ng-model="tipo" ng-options="option.name for option in options1 track by option.id"></select>
+			</div>
+			<div class="mid col-sm-6">		
+				<select class="input-ingreso" id="animator" ng-model="clase" ng-options="option.name for option in options2 track by option.id"></select>
+			</div>
 		</div>
 	</div>
-	<div class="gris-oscuro2">
-		<div class="gris-claro">
-			<input type="text" class="input-ingreso" placeholder="Tipo de Proyecto*">
-			<input type="text" class="input-ingreso" placeholder="Servicio a Contratar*">
-			<input type="text" class="input-ingreso" placeholder="Calidad*">
-			<textarea  class="input-ingreso" placeholder="Descripcion*"></textarea>
+	<div class="reg-wrapper plomo2" ng-show="paso === 1 && como === 'cliente'">
+		<div class="inner-wrapper gris">
+			<div class="mid">
+				<label for="email1">E-MAIL*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id=	"email1">
+			</div>
+			<div class="mid">
+				<label for="nombre1">NOMBRE*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="nombre1">
+			</div>
+			<div class="mid">
+				<label for="empresa">EMPRESA*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="empresa">
+			</div>
+			<div class="mid">
+				<label for="telefono">TELEFONO*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
 		</div>
 	</div>
-	<input type="submit" style="margin-top: 30px;border-radius:6px;width: 100px;" class="btn btn-default mark-button" value="Ingresar">
+	<div class="reg-wrapper plomo2" ng-show="paso === 2 && como === 'cliente'">
+		<div class="inner-wrapper gris">
+			<div class="mid">
+				<label for="tipo">TIPO DE PROYECTO*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="tipo">
+			</div>
+			<div class="mid">
+				<label for="servicio">SERVICIO A CONTRATAR*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="servicio">
+			</div>
+			<div class="mid">
+				<label for="calidad">CALIDAD*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="calidad">
+			</div>
+			<div class="mid">
+				<label for="descripcion">DESCRIPCION*</label>
+				<textarea  class="input-ingreso" id="descripcion"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 1 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<div class="mid col-sm-6">
+				<label for="nombre2">NOMBRE*</label>				
+				<input type="text" class="input-ingreso" id="nombre2">				
+			</div>
+			<div class="mid col-sm-6">
+				<label for="apellido">APELLIDO*</label>				
+				<input type="text" class="input-ingreso" id="apellido">
+			</div>
+			<div class="mid col-sm-6">
+				<label for="pais">PAIS*</label>				
+				<input type="text" class="input-ingreso" id="pais">				
+			</div>
+			<div class="mid col-sm-6">
+				<label for="region">REGION*</label>				
+				<input type="text" class="input-ingreso" id="region">				
+			</div>
+			<div class="mid col-sm-12">
+				<label for="email2">E-MAIL*</label>				
+				<input type="text" class="col-sm-12 input-ingreso" id="email2">				
+			</div>
+			<div class="mid col-sm-12">
+				<label for="profesional">TIPO DE PROFESIONAL*</label>	
+				<br>
+				<br>
+				<input type="radio" name="profesional" id="profesional" value="male" checked> Autónomo / Freelance <br>
+  				<input type="radio" name="profesional" id="profesional" value="female"> Sociedad Limitada <br>
+ 				<input type="radio" name="profesional" id="profesional" value="male"> Sociedad Anonima <br>
+  				<input type="radio" name="profesional" id="profesional" value="female"> No estoy dado de alta todavia como profesional<br>
+ 				<input type="radio" name="profesional" id="profesional" value="other"> Otras Categorias <br>
+				<input type="text" class="input-ingreso" id="otro">
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 2 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<div class="mid col-sm-12">
+				<label for="free">FECHA DE INICIO COMO AUTÓNOMO / FREELANCE*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="free">
+			</div>
+			<div class="mid col-sm-12">
+				<label for="cedula">CEDULA DE IDENTIDAD*</label>				
+				<input type="text" class="col-sm-12 input-ingreso" id="cedula">
+			</div>
+			<div class="mid col-sm-12">
+				<label for="abierto">¿ESTAS ABIERTO A OFERTAS DE TRABAJO?*</label>	
+				<br>
+				<br>
+				<input type="radio" name="abierto" id="abierto" value="male" checked> SI <br>
+  				<input type="radio" name="abierto" id="abierto" value="female"> NO<br>
+			</div>
+			<div class="mid col-sm-12">
+				<label for="pagina">¿POSEES PÁGINA WEB?*</label>				
+				<input type="text" class="col-sm-12 input-ingreso" id="pagina">
+			</div>
+			<div class="mid col-sm-12">
+				<label for="telefono2">TELEFONO*</label>				
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono2">
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 3 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<h4>NIVEL DE CONOCIMIENTO DE PROGRÁMAS</h3>
+			<p>Seleccione el nivel de conocimiento que tiene en estos programas</p>
+			<div class="mid col-sm-6">
+				<label for="photoshop">Photoshop</label>				
+				<select class="input-ingreso" id="photoshop"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="illustrator">Illustrator</label>				
+				<select class="input-ingreso" id="illustrator"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="indesign">InDesign</label>				
+				<select class="input-ingreso" id="indesign"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="lightroom">Lightroom</label>				
+				<select class="input-ingreso" id="lightroom"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="premierpro">Premiere Pro</label>				
+				<select class="input-ingreso" id="premierpro"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="aftereffects">After Effects</label>				
+				<select class="input-ingreso" id="aftereffects"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="animator">Animator</label>				
+				<select class="input-ingreso" id="animator"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="charanimator">Character Animator</label>				
+				<select class="input-ingreso" id="charanimator"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="audition">Audition</label>				
+				<select class="input-ingreso" id="audition"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="flash">Flash</label>				
+				<select class="input-ingreso" id="flash"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="mobilepackage">Animate & Mobile Device Packaging</label>
+				<select class="input-ingreso" id="mobilepackage"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="dreamweaver">Dreamweaver</label>				
+				<select class="input-ingreso" id="dreamweaver"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="muse">Muse</label>				
+				<select class="input-ingreso" id="muse"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="fuse">Fuse</label>				
+				<select class="input-ingreso" id="fuse"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="prelude">Prelude</label>				
+				<select class="input-ingreso" id="prelude"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="speedgrade">Speedgrade</label>				
+				<select class="input-ingreso" id="speedgrade"></select>
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 4 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<h4>EXPERIENCIA DE TRABAJO</h3>
+			<p>Indica tu nivel de experiencia por tipo de proyecto</p>
+			<div class="mid col-sm-6">
+				<label for="photoshop">Diseño de Logotipo / Isotipo</label>				
+				<select class="input-ingreso" id="photoshop"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="illustrator">Creacion de Marca</label>				
+				<select class="input-ingreso" id="illustrator"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="indesign">Diseño Publicitario</label>				
+				<select class="input-ingreso" id="indesign"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="lightroom">Diseño Editorial</label>				
+				<select class="input-ingreso" id="lightroom"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="premierpro">Gigantografia</label>				
+				<select class="input-ingreso" id="premierpro"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="aftereffects">Imprenta</label>				
+				<select class="input-ingreso" id="aftereffects"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="animator">Diseño de Packaging</label>				
+				<select class="input-ingreso" id="animator"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="charanimator">Diseño Web</label>				
+				<select class="input-ingreso" id="charanimator"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="audition">Diseño de Apps</label>				
+				<select class="input-ingreso" id="audition"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="flash">Animacion</label>				
+				<select class="input-ingreso" id="flash"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="mobilepackage">Audiovisual</label>
+				<select class="input-ingreso" id="mobilepackage"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="dreamweaver">Fotografia</label>				
+				<select class="input-ingreso" id="dreamweaver"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="muse">Ilustracion</label>				
+				<select class="input-ingreso" id="muse"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="fuse">Marketing</label>				
+				<select class="input-ingreso" id="fuse"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="prelude">Community Manager</label>				
+				<select class="input-ingreso" id="prelude"></select>
+			</div>
+			<div class="mid col-sm-6">
+				<label for="speedgrade">Otros</label><small>Especifique</small>			<input type="text" class="input-ingreso" id="nombre2">
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 5 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<div class="mid col-sm-12">
+				<label for="profesional">IDIOMAS HABLADOS*</label>	
+				<br>
+				<br>
+				<input type="radio" name="profesional" id="profesional" value="male" checked> Expañol <br>
+  				<input type="radio" name="profesional" id="profesional" value="female"> Ingles <br>
+ 				<input type="radio" name="profesional" id="profesional" value="male"> Frances <br>
+  				<input type="radio" name="profesional" id="profesional" value="female"> Alemán<br>
+ 				<input type="radio" name="profesional" id="profesional" value="other"> Italiano <br>
+				<input type="radio" name="profesional" id="profesional" value="other"> Portugués<br>
+			</div>
+			<div class="mid col-sm-12">
+				<label for="descripcion">¿Posees Referencias Laborales?</label><br><br>
+				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+				<textarea  class="input-ingreso" id="descripcion"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 6 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<div class="mid col-sm-12">
+				<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
+				<textarea  class="input-ingreso" id="descripcion"></textarea>
+				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+			</div>
+			<div class="mid">
+				<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+			<div class="mid">
+				<label for="telefono">TELEFONO DEL CLIENTE*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+			<div class="mid">
+				<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 7 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<div class="mid col-sm-12">
+				<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
+				<textarea  class="input-ingreso" id="descripcion"></textarea>
+				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+			</div>
+			<div class="mid">
+				<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+			<div class="mid">
+				<label for="telefono">TELEFONO DEL CLIENTE*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+			<div class="mid">
+				<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+		</div>
+	</div>
+	<div class="reg-wrapper peach" ng-show="paso === 8 && como === 'freelancer'">
+		<div class="inner-wrapper peachy">
+			<div class="mid col-sm-12">
+				<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
+				<textarea  class="input-ingreso" id="descripcion"></textarea>
+				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+			</div>
+			<div class="mid">
+				<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+			<div class="mid">
+				<label for="telefono">TELEFONO DEL CLIENTE*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+			<div class="mid">
+				<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
+				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+			</div>
+		</div>
+	</div>
+	<div class="how">
+		<button ng-show="paso >= 1" 
+				class="btn btn-default mark-button"
+				style="width:200px"
+				ng-click="anterior()"> 
+			ANTERIOR
+		</button>
+		<button ng-show="como === 'freelancer' && paso < 8 || 
+						 como === 'cliente'    && paso < 2 "
+				class="btn btn-default mark-button"
+				style="width:200px"
+				ng-click="siguiente()">
+			CONTINUAR
+		</button>
+		<button ng-show="como === 'freelancer' && paso === 8 || 
+						 como === 'cliente'    && paso === 2 " class="btn btn-default mark-button" style="width:200px">
+			FINALIZAR
+		</button>
+	</div>
+	<div class="info-ana" ng-show="paso === 2 && como === 'cliente'">
+		<div class="img-ana">
+			<img src="assets/img/ana.jpg" alt="" class="img img-responsive">
+		</div><br>
+		<p>Hola,</p>
+		<p>
+			Mi nombre es Ana Goncalves, y soy supervisora de proyectos en Mundo Freelance
+		</p>
+		<p>Haz click en este enlace para organizar una llamada</p>
+		<div class="how">
+			<button class="btn btn-default mark-button" style="width:200px">
+				SOLICITAR REUNION
+			</button>
+		</div>
+		<p>¡Espero que podamos hablar pronto!</p>
+		<p>Saludos</p>
+	</div>
 </div>
