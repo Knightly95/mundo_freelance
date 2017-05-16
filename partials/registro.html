@@ -1,388 +1,454 @@
-<div class="container">
-	<div id="tittles">
-		<h2 ng-show="paso === 0" style="text-align: center">REGISTRARSE COMO:</h2>
-		<h2 ng-show="paso > 0 && como === 'cliente'" style="text-align: center">REGISTRO DEL CLIENTE</h2>
-		<h2 ng-show="paso === 1 && como === 'cliente'" style="text-align: center">INFORMACION GENERAL</h2>
-		<h2 ng-show="paso === 2 && como === 'cliente'" style="text-align: center">INFORMACION DEL PROYECTO</h2>
-		<h2 ng-show="paso > 0 && como === 'freelancer'" style="text-align: center">REGISTRO DEL DISEÑADOR</h2>
-		<h2 ng-show="(paso === 1 || paso === 2) && como === 'freelancer'" style="text-align: center">INFORMACION GENERAL</h2>
-		<h2 ng-show="paso === 3 && como === 'freelancer'" style="text-align: center">HABILIDADES TECNICAS:</h2>
-		<h2 ng-show="paso === 4 && como === 'freelancer'" style="text-align: center">EXPERIENCIA</h2>
-		<h2 ng-show="paso === 5 && como === 'freelancer'" style="text-align: center">OTROS DATOS</h2>
-		<h2 ng-show="paso === 6 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 1 (OBLIGATORIO)</h2>
-		<h2 ng-show="paso === 7 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 2 (OBLIGATORIO)</h2>
-		<h2 ng-show="paso === 8 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 3</h2>
-	</div>
-	<div class="reg-wrapper plomo2" ng-show="paso === 0">
-		<div class="inner-wrapper gris">
-			<div class="how">
-				<button ng-click="setComo('freelancer')" class="btn btn-default mark-button" style="width:200px"> 
-					COMO FREELANCER
-				</button>
-				<button ng-click="setComo('cliente')" class="btn btn-default mark-button" style="width:200px">
-					COMO CLIENTE
-				</button>
+<!DOCTYPE html>
+<html lang="en" ng-app="mundo_freelance">
+<head>
+	<meta charset="UTF-8">
+	<title>Mundo Freelance</title>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/angular-ui-router.min.js"></script>
+	<script src="../js/app.js"></script>
+</head>
+<body ng-controller="registroCtrl">
+	<nav class="navbar navbar-default">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="dropdown btn btn-default mark-button">
+	          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+	          <ul class="dropdown-menu dropdown-new text-center">
+	            <li class="text-center li-container" onclick="location.href='./comofunciona.html';">
+	            	<div class="li-img"><img src="../assets/img/icon1.png" alt=""></div>
+	            	<a href="#">COMO FUNCIONA</a>
+	            </li>
+	            <li class="text-center li-container" ng-click="reset()">
+	            	<div class="li-img"><img src="../assets/img/icon2.png" alt=""></div>
+	            	<a href="#">COMIENZA TU PROYECTO</a>
+	            </li>
+	            <li class="text-center li-container" onclick="location.href='./sobrenosotros.html';">
+	            	<div class="li-img"><img src="../assets/img/icon4.png" alt=""></div>
+	            	<a href="#">SOBRE NOSOTROS</a>
+	            </li>
+	            <!--
+	            <div class="menu-end">
+	            	<br>
+	            </div>
+	            -->
+	          </ul>
+	        </li>
+	        <li class="btn btn-default mark-button networks">
+	        	<span href="https://twitter.com/"><i><img src="../assets/img/Twitter.png" alt="Twitter"></i></span>
+	        	<span href="https://www.facebook.com/"><i><img src="../assets/img/Facebook.png" alt="Facebook"></i></span>
+	        	<span href="https://plus.google.com/"><i><img src="../assets/img/Google+.png" alt="Google+"></i></span>
+	        	<span href="#"><i><img class="share" src="../assets/img/Share.png" alt="Share"></i></span>
+	        </li>
+	        <li class="btn btn-default mark-button"><a href="./ingreso.html">Ingresa</a></li>
+	        <li class="btn btn-default mark-button"  ng-click="reset()"><a href="">Registrate</a></li>
+	      	<a class="navbar-brand pull-right" href="../index.html"><img src="../assets/img/logo.png" class="img img-responsive" alt="Mundo Freelance"></a>
+	      </ul>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<div id="tittles">
+			<h2 ng-show="paso === 0" style="text-align: center">REGISTRARSE COMO:</h2>
+			<h2 ng-show="paso > 0 && como === 'cliente'" style="text-align: center">REGISTRO DEL CLIENTE</h2>
+			<h2 ng-show="paso === 1 && como === 'cliente'" style="text-align: center">INFORMACION GENERAL</h2>
+			<h2 ng-show="paso === 2 && como === 'cliente'" style="text-align: center">INFORMACION DEL PROYECTO</h2>
+			<h2 ng-show="paso > 0 && como === 'freelancer'" style="text-align: center">REGISTRO DEL DISEÑADOR</h2>
+			<h2 ng-show="(paso === 1 || paso === 2) && como === 'freelancer'" style="text-align: center">INFORMACION GENERAL</h2>
+			<h2 ng-show="paso === 3 && como === 'freelancer'" style="text-align: center">HABILIDADES TECNICAS:</h2>
+			<h2 ng-show="paso === 4 && como === 'freelancer'" style="text-align: center">EXPERIENCIA</h2>
+			<h2 ng-show="paso === 5 && como === 'freelancer'" style="text-align: center">OTROS DATOS</h2>
+			<h2 ng-show="paso === 6 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 1 (OBLIGATORIO)</h2>
+			<h2 ng-show="paso === 7 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 2 (OBLIGATORIO)</h2>
+			<h2 ng-show="paso === 8 && como === 'freelancer'" style="text-align: center">PROYECTOS DE MUESTRA 3</h2>
+		</div>
+		<div class="reg-wrapper plomo2" ng-show="paso === 0">
+			<div class="inner-wrapper gris">
+				<div class="how">
+					<button ng-click="setComo('freelancer')" class="btn btn-default mark-button" style="width:200px"> 
+						FREELANCER
+					</button>
+					<button ng-click="setComo('cliente')" class="btn btn-default mark-button" style="width:200px">
+						CLIENTE
+					</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="reg-wrapper plomo2" ng-show="paso === 1 && como === 'cliente'">
-		<div class="inner-wrapper gris">
-			<div class="mid">
-				<label for="email1">E-MAIL*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id=	"email1">
-			</div>
-			<div class="mid">
-				<label for="nombre1">NOMBRE*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="nombre1">
-			</div>
-			<div class="mid">
-				<label for="empresa">EMPRESA*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="empresa">
-			</div>
-			<div class="mid">
-				<label for="telefono">TELEFONO*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-		</div>
-	</div>
-	<div class="reg-wrapper plomo2" ng-show="paso === 2 && como === 'cliente'">
-		<div class="inner-wrapper gris">
-			<div class="mid">
-				<label for="tipo">TIPO DE PROYECTO*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="tipo">
-			</div>
-			<div class="mid">
-				<label for="servicio">SERVICIO A CONTRATAR*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="servicio">
-			</div>
-			<div class="mid">
-				<label for="calidad">CALIDAD*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="calidad">
-			</div>
-			<div class="mid">
-				<label for="descripcion">DESCRIPCION*</label>
-				<textarea  class="input-ingreso" id="descripcion"></textarea>
+		<div class="reg-wrapper plomo2" ng-show="paso === 1 && como === 'cliente'">
+			<div class="inner-wrapper gris">
+				<div class="mid">
+					<label for="email1">E-MAIL*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id=	"email1">
+				</div>
+				<div class="mid">
+					<label for="nombre1">NOMBRE*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="nombre1">
+				</div>
+				<div class="mid">
+					<label for="empresa">EMPRESA*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="empresa">
+				</div>
+				<div class="mid">
+					<label for="telefono">TELEFONO*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 1 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<div class="mid col-sm-6">
-				<label for="nombre2">NOMBRE*</label>				
-				<input type="text" class="input-ingreso" id="nombre2">				
-			</div>
-			<div class="mid col-sm-6">
-				<label for="apellido">APELLIDO*</label>				
-				<input type="text" class="input-ingreso" id="apellido">
-			</div>
-			<div class="mid col-sm-6">
-				<label for="pais">PAIS*</label>				
-				<input type="text" class="input-ingreso" id="pais">				
-			</div>
-			<div class="mid col-sm-6">
-				<label for="region">REGION*</label>				
-				<input type="text" class="input-ingreso" id="region">				
-			</div>
-			<div class="mid col-sm-12">
-				<label for="email2">E-MAIL*</label>				
-				<input type="text" class="col-sm-12 input-ingreso" id="email2">				
-			</div>
-			<div class="mid col-sm-12">
-				<label for="profesional">TIPO DE PROFESIONAL*</label>	
-				<br>
-				<br>
-				<input type="radio" name="profesional" id="profesional" value="male" checked> Autónomo / Freelance <br>
-  				<input type="radio" name="profesional" id="profesional" value="female"> Sociedad Limitada <br>
- 				<input type="radio" name="profesional" id="profesional" value="male"> Sociedad Anonima <br>
-  				<input type="radio" name="profesional" id="profesional" value="female"> No estoy dado de alta todavia como profesional<br>
- 				<input type="radio" name="profesional" id="profesional" value="other"> Otras Categorias <br>
-				<input type="text" class="input-ingreso" id="otro">
+		<div class="reg-wrapper plomo2" ng-show="paso === 2 && como === 'cliente'">
+			<div class="inner-wrapper gris">
+				<div class="mid">
+					<label for="tipo">TIPO DE PROYECTO*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="tipo">
+				</div>
+				<div class="mid">
+					<label for="servicio">SERVICIO A CONTRATAR*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="servicio">
+				</div>
+				<div class="mid">
+					<label for="calidad">CALIDAD*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="calidad">
+				</div>
+				<div class="mid">
+					<label for="descripcion">DESCRIPCION*</label>
+					<textarea  class="input-ingreso" id="descripcion"></textarea>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 2 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<div class="mid col-sm-12">
-				<label for="free">FECHA DE INICIO COMO AUTÓNOMO / FREELANCE*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="free">
-			</div>
-			<div class="mid col-sm-12">
-				<label for="cedula">CEDULA DE IDENTIDAD*</label>				
-				<input type="text" class="col-sm-12 input-ingreso" id="cedula">
-			</div>
-			<div class="mid col-sm-12">
-				<label for="abierto">¿ESTAS ABIERTO A OFERTAS DE TRABAJO?*</label>	
-				<br>
-				<br>
-				<input type="radio" name="abierto" id="abierto" value="male" checked> SI <br>
-  				<input type="radio" name="abierto" id="abierto" value="female"> NO<br>
-			</div>
-			<div class="mid col-sm-12">
-				<label for="pagina">¿POSEES PÁGINA WEB?*</label>				
-				<input type="text" class="col-sm-12 input-ingreso" id="pagina">
-			</div>
-			<div class="mid col-sm-12">
-				<label for="telefono2">TELEFONO*</label>				
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono2">
-			</div>
-		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 3 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<h4>NIVEL DE CONOCIMIENTO DE PROGRÁMAS</h3>
-			<p>Seleccione el nivel de conocimiento que tiene en estos programas</p>
-			<div class="mid col-sm-6">
-				<label for="photoshop">Photoshop</label>				
-				<select class="input-ingreso" id="animator" ng-model="photoshop" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="illustrator">Illustrator</label>				
-				<select class="input-ingreso" id="animator" ng-model="illustrator" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="indesign">InDesign</label>				
-				<select class="input-ingreso" id="animator" ng-model="indesign" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="lightroom">Lightroom</label>				
-				<select class="input-ingreso" id="animator" ng-model="lightroom" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="premierpro">Premiere Pro</label>				
-				<select class="input-ingreso" id="animator" ng-model="premierpro" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="aftereffects">After Effects</label>				
-				<select class="input-ingreso" id="animator" ng-model="aftereffects" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="animator">Animator</label>				
-				<select class="input-ingreso" id="animator" ng-model="animator" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="charanimator">Character Animator</label>				
-				<select class="input-ingreso" id="animator" ng-model="charanimator" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="audition">Audition</label>				
-				<select class="input-ingreso" id="animator" ng-model="audition" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="flash">Flash</label>				
-				<select class="input-ingreso" id="animator" ng-model="flash" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="mobilepackage">Animate & Mobile Device Packaging</label>
-				<select class="input-ingreso" id="animator" ng-model="mobilepackage" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="dreamweaver">Dreamweaver</label>				
-				<select class="input-ingreso" id="animator" ng-model="dreamweaver" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="muse">Muse</label>				
-				<select class="input-ingreso" id="animator" ng-model="muse" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="fuse">Fuse</label>				
-				<select class="input-ingreso" id="animator" ng-model="fuse" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="prelude">Prelude</label>				
-				<select class="input-ingreso" id="animator" ng-model="prelude" ng-options="option.name for option in options1 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="speedgrade">Speedgrade</label>				
-				<select class="input-ingreso" id="animator" ng-model="speedgrade" ng-options="option.name for option in options1 track by option.id"></select>
+		<div class="reg-wrapper peach" ng-show="paso === 1 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<div class="mid col-sm-6">
+					<label for="nombre2">NOMBRE*</label>				
+					<input type="text" class="input-ingreso" id="nombre2">				
+				</div>
+				<div class="mid col-sm-6">
+					<label for="apellido">APELLIDO*</label>				
+					<input type="text" class="input-ingreso" id="apellido">
+				</div>
+				<div class="mid col-sm-6">
+					<label for="pais">PAIS*</label>				
+					<input type="text" class="input-ingreso" id="pais">				
+				</div>
+				<div class="mid col-sm-6">
+					<label for="region">REGION*</label>				
+					<input type="text" class="input-ingreso" id="region">				
+				</div>
+				<div class="mid col-sm-12">
+					<label for="email2">E-MAIL*</label>				
+					<input type="text" class="col-sm-12 input-ingreso" id="email2">				
+				</div>
+				<div class="mid col-sm-12">
+					<label for="profesional">TIPO DE PROFESIONAL*</label>	
+					<br>
+					<br>
+					<input type="radio" class="checkbox-round" name="profesional" id="profesional" value="male" checked> Autónomo / Freelance <br>
+	  				<input type="radio" class="checkbox-round" name="profesional" id="profesional" value="female"> Sociedad Limitada <br>
+	 				<input type="radio" class="checkbox-round" name="profesional" id="profesional" value="male"> Sociedad Anonima <br>
+	  				<input type="radio" class="checkbox-round" name="profesional" id="profesional" value="female"> No estoy dado de alta todavia como profesional<br>
+	 				<input type="radio" class="checkbox-round" name="profesional" id="profesional" value="other"> Otras Categorias <br>
+					<input type="text" class="input-ingreso" id="otro">
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 4 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<h4>EXPERIENCIA DE TRABAJO</h3>
-			<p>Indica tu nivel de experiencia por tipo de proyecto</p>
-			<div class="mid col-sm-6">
-				<label for="photoshop">Diseño de Logotipo / Isotipo</label>				
-				<select class="input-ingreso" id="animator" ng-model="logo" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="illustrator">Creacion de Marca</label>				
-				<select class="input-ingreso" id="animator" ng-model="marca" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="indesign">Diseño Publicitario</label>				
-				<select class="input-ingreso" id="animator" ng-model="publicitario" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="lightroom">Diseño Editorial</label>				
-				<select class="input-ingreso" id="animator" ng-model="editorial" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="premierpro">Gigantografia</label>				
-				<select class="input-ingreso" id="animator" ng-model="gigantografia" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="aftereffects">Imprenta</label>				
-				<select class="input-ingreso" id="animator" ng-model="imprenta" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="animator">Diseño de Packaging</label>				
-				<select class="input-ingreso" id="animator" ng-model="packaging" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="charanimator">Diseño Web</label>				
-				<select class="input-ingreso" id="animator" ng-model="web" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="audition">Diseño de Apps</label>				
-				<select class="input-ingreso" id="animator" ng-model="apps" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="flash">Animacion</label>				
-				<select class="input-ingreso" id="animator" ng-model="animacion" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="mobilepackage">Audiovisual</label>
-				<select class="input-ingreso" id="animator" ng-model="audiovisual" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="dreamweaver">Fotografia</label>				
-				<select class="input-ingreso" id="animator" ng-model="fotografia" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="muse">Ilustracion</label>				
-				<select class="input-ingreso" id="animator" ng-model="ilustracion" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="fuse">Marketing</label>				
-				<select class="input-ingreso" id="animator" ng-model="marketing" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="prelude">Community Manager</label>				
-				<select class="input-ingreso" id="animator" ng-model="community" ng-options="option.name for option in options2 track by option.id"></select>
-			</div>
-			<div class="mid col-sm-6">
-				<label for="speedgrade">Otros</label><small>Especifique</small>			<input type="text" class="input-ingreso" id="nombre2">
+		<div class="reg-wrapper peach" ng-show="paso === 2 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<div class="mid col-sm-12">
+					<label for="free">FECHA DE INICIO COMO AUTÓNOMO / FREELANCE*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="free">
+				</div>
+				<div class="mid col-sm-12">
+					<label for="cedula">CEDULA DE IDENTIDAD*</label>				
+					<input type="text" class="col-sm-12 input-ingreso" id="cedula">
+				</div>
+				<div class="mid col-sm-12">
+					<label for="abierto">¿ESTAS ABIERTO A OFERTAS DE TRABAJO?*</label>	
+					<br>
+					<br>
+					<input type="radio" class="checkbox-round" name="abierto" id="abierto" value="male" checked> SI <br>
+	  				<input type="radio" class="checkbox-round" name="abierto" id="abierto" value="female"> NO<br>
+				</div>
+				<div class="mid col-sm-12">
+					<label for="pagina">¿POSEES PÁGINA WEB?*</label>				
+					<input type="text" class="col-sm-12 input-ingreso" id="pagina">
+				</div>
+				<div class="mid col-sm-12">
+					<label for="telefono2">TELEFONO*</label>				
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono2">
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 5 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<div class="mid col-sm-12">
-				<label for="profesional">IDIOMAS HABLADOS*</label>	
-				<br>
-				<br>
-				<input type="radio" name="profesional" id="profesional" value="male" checked> Expañol <br>
-  				<input type="radio" name="profesional" id="profesional" value="female"> Ingles <br>
- 				<input type="radio" name="profesional" id="profesional" value="male"> Frances <br>
-  				<input type="radio" name="profesional" id="profesional" value="female"> Alemán<br>
- 				<input type="radio" name="profesional" id="profesional" value="other"> Italiano <br>
-				<input type="radio" name="profesional" id="profesional" value="other"> Portugués<br>
-			</div>
-			<div class="mid col-sm-12">
-				<label for="descripcion">¿Posees Referencias Laborales?</label><br><br>
-				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
-				<textarea  class="input-ingreso" id="descripcion"></textarea>
-			</div>
-		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 6 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<div class="mid col-sm-12">
-				<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
-				<textarea  class="input-ingreso" id="descripcion"></textarea>
-				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
-			</div>
-			<div class="mid">
-				<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-			<div class="mid">
-				<label for="telefono">TELEFONO DEL CLIENTE*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-			<div class="mid">
-				<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 7 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<div class="mid col-sm-12">
-				<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
-				<textarea  class="input-ingreso" id="descripcion"></textarea>
-				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
-			</div>
-			<div class="mid">
-				<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-			<div class="mid">
-				<label for="telefono">TELEFONO DEL CLIENTE*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-			<div class="mid">
-				<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-		</div>
-	</div>
-	<div class="reg-wrapper peach" ng-show="paso === 8 && como === 'freelancer'">
-		<div class="inner-wrapper peachy">
-			<div class="mid col-sm-12">
-				<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
-				<textarea  class="input-ingreso" id="descripcion"></textarea>
-				<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
-			</div>
-			<div class="mid">
-				<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-			<div class="mid">
-				<label for="telefono">TELEFONO DEL CLIENTE*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
-			</div>
-			<div class="mid">
-				<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
-				<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+		<div class="reg-wrapper peach" ng-show="paso === 3 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<h4>NIVEL DE CONOCIMIENTO DE PROGRÁMAS</h3>
+				<p>Seleccione el nivel de conocimiento que tiene en estos programas</p>
+				<div class="mid col-sm-6">
+					<label for="photoshop">Photoshop</label>				
+					<select class="input-ingreso" id="animator" ng-model="photoshop" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="illustrator">Illustrator</label>				
+					<select class="input-ingreso" id="animator" ng-model="illustrator" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="indesign">InDesign</label>				
+					<select class="input-ingreso" id="animator" ng-model="indesign" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="lightroom">Lightroom</label>				
+					<select class="input-ingreso" id="animator" ng-model="lightroom" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="premierpro">Premiere Pro</label>				
+					<select class="input-ingreso" id="animator" ng-model="premierpro" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="aftereffects">After Effects</label>				
+					<select class="input-ingreso" id="animator" ng-model="aftereffects" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="animator">Animator</label>				
+					<select class="input-ingreso" id="animator" ng-model="animator" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="charanimator">Character Animator</label>				
+					<select class="input-ingreso" id="animator" ng-model="charanimator" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="audition">Audition</label>				
+					<select class="input-ingreso" id="animator" ng-model="audition" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="flash">Flash</label>				
+					<select class="input-ingreso" id="animator" ng-model="flash" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="mobilepackage">Animate & Mobile Device Packaging</label>
+					<select class="input-ingreso" id="animator" ng-model="mobilepackage" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="dreamweaver">Dreamweaver</label>				
+					<select class="input-ingreso" id="animator" ng-model="dreamweaver" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="muse">Muse</label>				
+					<select class="input-ingreso" id="animator" ng-model="muse" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="fuse">Fuse</label>				
+					<select class="input-ingreso" id="animator" ng-model="fuse" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="prelude">Prelude</label>				
+					<select class="input-ingreso" id="animator" ng-model="prelude" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="speedgrade">Speedgrade</label>				
+					<select class="input-ingreso" id="animator" ng-model="speedgrade" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="how">
-		<button ng-show="paso >= 1" 
-				class="btn btn-default mark-button"
-				style="width:200px"
-				ng-click="anterior()"> 
-			ANTERIOR
-		</button>
-		<button ng-show="como === 'freelancer' && paso < 8 || 
-						 como === 'cliente'    && paso < 2 "
-				class="btn btn-default mark-button"
-				style="width:200px"
-				ng-click="siguiente()">
-			CONTINUAR
-		</button>
-		<button ng-show="como === 'freelancer' && paso === 8 || 
-						 como === 'cliente'    && paso === 2 " class="btn btn-default mark-button" style="width:200px">
-			FINALIZAR
-		</button>
-	</div>
-	<div class="info-ana" ng-show="paso === 2 && como === 'cliente'">
-		<div class="img-ana">
-			<img src="assets/img/ana.jpg" alt="" class="img img-responsive">
-		</div><br>
-		<p>Hola,</p>
-		<p>
-			Mi nombre es Ana Goncalves, y soy supervisora de proyectos en Mundo Freelance
-		</p>
-		<p>Haz click en este enlace para organizar una llamada</p>
+		<div class="reg-wrapper peach" ng-show="paso === 4 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<h4>EXPERIENCIA DE TRABAJO</h3>
+				<p>Indica tu nivel de experiencia por tipo de proyecto</p>
+				<div class="mid col-sm-6">
+					<label for="photoshop">Diseño de Logotipo / Isotipo</label>				
+					<select class="input-ingreso" id="animator" ng-model="logo" ng-options="option.name for option in options2 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="illustrator">Creacion de Marca</label>				
+					<select class="input-ingreso" id="animator" ng-model="marca" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="indesign">Diseño Publicitario</label>				
+					<select class="input-ingreso" id="animator" ng-model="publicitario" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="lightroom">Diseño Editorial</label>				
+					<select class="input-ingreso" id="animator" ng-model="editorial" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="premierpro">Gigantografia</label>				
+					<select class="input-ingreso" id="animator" ng-model="gigantografia" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="aftereffects">Imprenta</label>				
+					<select class="input-ingreso" id="animator" ng-model="imprenta" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="animator">Diseño de Packaging</label>				
+					<select class="input-ingreso" id="animator" ng-model="packaging" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="charanimator">Diseño Web</label>				
+					<select class="input-ingreso" id="animator" ng-model="web" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="audition">Diseño de Apps</label>				
+					<select class="input-ingreso" id="animator" ng-model="apps" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="flash">Animacion</label>				
+					<select class="input-ingreso" id="animator" ng-model="animacion" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="mobilepackage">Audiovisual</label>
+					<select class="input-ingreso" id="animator" ng-model="audiovisual" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="dreamweaver">Fotografia</label>				
+					<select class="input-ingreso" id="animator" ng-model="fotografia" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="muse">Ilustracion</label>				
+					<select class="input-ingreso" id="animator" ng-model="ilustracion" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="fuse">Marketing</label>				
+					<select class="input-ingreso" id="animator" ng-model="marketing" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="prelude">Community Manager</label>				
+					<select class="input-ingreso" id="animator" ng-model="community" ng-options="option.name for option in options1 track by option.id"></select>
+				</div>
+				<div class="mid col-sm-6">
+					<label for="speedgrade">Otros</label><small>Especifique</small>			<input type="text" class="input-ingreso" id="nombre2">
+				</div>
+			</div>
+		</div>
+		<div class="reg-wrapper peach" ng-show="paso === 5 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<div class="mid col-sm-12">
+					<label for="profesional">IDIOMAS HABLADOS*</label>	
+					<br>
+					<br>
+					<input type="checkbox" class="checkbox-round" name="profesional" id="profesional" value="male" checked> Español <br>
+	  				<input type="checkbox" class="checkbox-round" name="profesional" id="profesional" value="female"> Ingles <br>
+	 				<input type="checkbox" class="checkbox-round" name="profesional" id="profesional" value="male"> Frances <br>
+	  				<input type="checkbox" class="checkbox-round" name="profesional" id="profesional" value="female"> Alemán<br>
+	 				<input type="checkbox" class="checkbox-round" name="profesional" id="profesional" value="other"> Italiano <br>
+					<input type="checkbox" class="checkbox-round" name="profesional" id="profesional" value="other"> Portugués<br>
+				</div>
+				<div class="mid col-sm-12">
+					<label for="descripcion">¿Posees Referencias Laborales?</label><br><br>
+					<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+					<textarea  class="input-ingreso" id="descripcion"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="reg-wrapper peach" ng-show="paso === 6 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<div class="mid col-sm-12">
+					<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
+					<textarea  class="input-ingreso" id="descripcion"></textarea>
+					<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+				</div>
+				<div class="mid">
+					<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+				<div class="mid">
+					<label for="telefono">TELEFONO DEL CLIENTE*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+				<div class="mid">
+					<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+			</div>
+		</div>
+		<div class="reg-wrapper peach" ng-show="paso === 7 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<div class="mid col-sm-12">
+					<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
+					<textarea  class="input-ingreso" id="descripcion"></textarea>
+					<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+				</div>
+				<div class="mid">
+					<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+				<div class="mid">
+					<label for="telefono">TELEFONO DEL CLIENTE*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+				<div class="mid">
+					<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+			</div>
+		</div>
+		<div class="reg-wrapper peach" ng-show="paso === 8 && como === 'freelancer'">
+			<div class="inner-wrapper peachy">
+				<div class="mid col-sm-12">
+					<label for="descripcion">DESCRIPCION DEL PROYECTO*</label>
+					<textarea  class="input-ingreso" id="descripcion"></textarea>
+					<small>Porfavor indicanos si has trabajado anteriormente en alguna de las areas de diseño mencionadas, coloca el nombre de la empresa, la pagina web y su numero de contacto.</small>
+				</div>
+				<div class="mid">
+					<label for="telefono">E-MAIL DEL CLIENTE/REFERENCIA*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+				<div class="mid">
+					<label for="telefono">TELEFONO DEL CLIENTE*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+				<div class="mid">
+					<label for="telefono">ADJUNTA O ENLAZA EL ARCHIVO AQUI*</label>
+					<input type="text" class="col-sm-12 input-ingreso" id="telefono">
+				</div>
+			</div>
+		</div>
 		<div class="how">
-			<button class="btn btn-default mark-button" style="width:200px">
-				SOLICITAR REUNION
+			<button ng-show="paso >= 1" 
+					class="btn btn-default mark-button"
+					style="width:200px"
+					ng-click="anterior()"> 
+				ANTERIOR
+			</button>
+			<button ng-show="como === 'freelancer' && paso < 8 || 
+							 como === 'cliente'    && paso < 2 "
+					class="btn btn-default mark-button"
+					style="width:200px"
+					ng-click="siguiente()">
+				CONTINUAR
+			</button>
+			<button ng-show="como === 'freelancer' && paso === 8 || 
+							 como === 'cliente'    && paso === 2 " class="btn btn-default mark-button" style="width:200px">
+				FINALIZAR
 			</button>
 		</div>
-		<p>¡Espero que podamos hablar pronto!</p>
-		<p>Saludos</p>
+		<div class="info-ana" ng-show="paso === 2 && como === 'cliente'">
+			<div class="img-ana">
+				<img src="../../assets/img/ana.jpg" alt="" class="img img-responsive">
+			</div><br>
+			<p>Hola,</p>
+			<p>
+				Mi nombre es Ana Goncalves, y soy supervisora de proyectos en Mundo Freelance
+			</p>
+			<p>Haz click en este enlace para organizar una llamada</p>
+			<div class="how">
+				<button class="btn btn-default mark-button" style="width:200px">
+					SOLICITAR REUNION
+				</button>
+			</div>
+			<p>¡Espero que podamos hablar pronto!</p>
+			<p>Saludos</p>
+		</div>
 	</div>
-</div>
+</body>
+</html>

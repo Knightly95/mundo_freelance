@@ -138,7 +138,6 @@ input,textarea {
 	background-color: rgba(0,0,0,0)
 }
 .li-container{
-
 	background: rgba(255,255,255,0);/* Old Browsers */
 	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.9) 60%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,0) 100%); /* FF3.6+ */
 	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(20%, rgba(255,255,255,0.4)), color-stop(40%, rgba(255,255,255,0.9)), color-stop(60%, rgba(255,255,255,0.9)), color-stop(80%, rgba(255,255,255,0.4)), color-stop(100%, rgba(255,255,255,0)));/* Chrome, Safari4+ */
@@ -157,6 +156,9 @@ input,textarea {
 .li-container > a {
 	padding:0px !important;
 	margin:10px;
+}
+.li-container > a:hover {
+	background-color: transparent !important;
 }
 .li-img{
 	background-color: #3e413e;
@@ -406,4 +408,19 @@ textarea.input-ingreso{
     border-radius: 15px;
     margin: 10px auto;
     width: 190px;
+}
+.checkbox-round {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0px !important;
+    cursor: pointer;
+}
+.checkbox-round:checked {
+    background-color: #ffcc44;
 }
