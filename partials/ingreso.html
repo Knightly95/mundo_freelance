@@ -1,76 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="mundo_freelance">
-<head>
-	<meta charset="UTF-8">
-	<title>Mundo Freelance</title>
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/main.css">
-	<script src="../js/angular.min.js"></script>
-	<script src="../js/angular-ui-router.min.js"></script>
-	<script src="../js/app.js"></script>
-</head>
-<body>
-	<nav class="navbar navbar-default">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	    </div>
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li class="dropdown btn btn-default mark-button">
-	          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
-	          <ul class="dropdown-menu dropdown-new text-center">
-	            <li class="text-center li-container" onclick="location.href='./comofunciona.html';">
-	            	<div class="li-img"><img src="../assets/img/icon1.png" alt=""></div>
-	            	<a href="#">COMO FUNCIONA</a>
-	            </li>
-	            <li class="text-center li-container" onclick="location.href='./registro.html';">
-	            	<div class="li-img"><img src="../assets/img/icon2.png" alt=""></div>
-	            	<a href="#">COMIENZA TU PROYECTO</a>
-	            </li>
-	            <li class="text-center li-container" onclick="location.href='./sobrenosotros.html';">
-	            	<div class="li-img"><img src="../assets/img/icon4.png" alt=""></div>
-	            	<a href="#">SOBRE NOSOTROS</a>
-	            </li>
-	            <!--
-	            <div class="menu-end">
-	            	<br>
-	            </div>
-	            -->
-	          </ul>
-	        </li>
-	        <li class="btn btn-default mark-button networks">
-	        	<span href="https://twitter.com/"><i><img src="../assets/img/Twitter.png" alt="Twitter"></i></span>
-	        	<span href="https://www.facebook.com/"><i><img src="../assets/img/Facebook.png" alt="Facebook"></i></span>
-	        	<span href="https://plus.google.com/"><i><img src="../assets/img/Google+.png" alt="Google+"></i></span>
-	        	<span href="#"><i><img class="share" src="../assets/img/Share.png" alt="Share"></i></span>
-	        </li>
-	        <li class="btn btn-default mark-button" onclick="location.href='./ingreso.html';"><a href="">Ingresa</a></li>
-	        <li class="btn btn-default mark-button" onclick="location.href='./registro.html';"><a href="">Registrate</a></li>
-	      	<a class="navbar-brand pull-right" href="../index.html"><img src="../assets/img/logo.png" class="img img-responsive" alt="Mundo Freelance"></a>
-	      </ul>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
 
-	<div class="container text-center">
-		<h2>INGRESA EN TU CUENTA DE MUNDO FREELANCE</h2>
-		<div class="ingreso-wrapper">
-			<div class="inner-wrapper gris-ing">
-				<input type="text" class="col-sm-12 input-ingreso" placeholder="Usuario">
-				<input type="password" class="col-sm-12 input-ingreso"  placeholder="Contraseña">
-			</div>
-		</div>
-		<input type="submit" style="margin-top: 30px;border-radius:6px;width: 100px;" class="btn btn-default mark-button" value="Ingresar">
-	</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Mundo Freelance</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-ui-router.min.js"></script>
+    <script src="../js/app.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown mydropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+                        <ul class="dropdown-menu dropdown-new text-center">
+                            <li class="text-center li-container" onclick="location.href='./comofunciona.html';">
+                                <div class="li-img"><img src="../assets/img/icon1.png" alt=""></div>
+                                <a href="#">COMO FUNCIONA</a>
+                            </li>
+                            <li class="text-center li-container" onclick="location.href='./registro.html';">
+                                <div class="li-img"><img src="../assets/img/icon2.png" alt=""></div>
+                                <a href="#">COMIENZA TU PROYECTO</a>
+                            </li>
+                            <li class="text-center li-container" onclick="location.href='./sobrenosotros.html';">
+                                <div class="li-img"><img src="../assets/img/icon4.png" alt=""></div>
+                                <a href="#">SOBRE NOSOTROS</a>
+                            </li>
+                            <li class="text-center li-container">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="btn btn-default mark-button networks">
+                        <span href="https://twitter.com/"><i><img src="../assets/img/Twitter.png" alt="Twitter"></i></span>
+                        <span href="https://www.facebook.com/"><i><img src="../assets/img/Facebook.png" alt="Facebook"></i></span>
+                        <span href="https://plus.google.com/"><i><img src="../assets/img/Google+.png" alt="Google+"></i></span>
+                        <span href="#"><i><img class="share" src="../assets/img/Share.png" alt="Share"></i></span>
+                    </li>
+                    <li class="btn btn-default mark-button" onclick="location.href='./ingreso.html';"><a href="">Ingresa</a></li>
+                    <li class="btn btn-default mark-button" onclick="location.href='./registro.html';"><a href="">Registrate</a></li>
+                    <a class="navbar-brand pull-right" href="../index.html"><img src="../assets/img/logo.png" class="img img-responsive" alt="Mundo Freelance"></a>
+                </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container text-center">
+        <h2>INGRESA EN TU CUENTA DE MUNDO FREELANCE</h2>
+        <div class="ingreso-wrapper">
+            <div class="inner-wrapper gris-ing">
+                <input type="text" class="col-sm-12 input-ingreso" placeholder="Usuario">
+                <input type="password" class="col-sm-12 input-ingreso" placeholder="Contraseña">
+            </div>
+        </div>
+        <input type="submit" style="margin-top: 30px;border-radius:6px;width: 100px;" class="btn btn-default mark-button" value="Ingresar">
+    </div>
 </body>
+
 </html>

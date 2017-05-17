@@ -132,7 +132,28 @@ input,textarea {
 .small, small {
 	font-size: 70%;
 }
+
+li.mydropdown {
+    /* no more display:block; on list item */
+    list-style: none;
+    border: 1px solid #b2b2b2;
+    padding: 0;
+    margin-top: 5px;
+    background-color: #ffcc44;
+    border-radius: 10px;
+    border: none;
+    height: 2.5em
+}
+
+li.mydropdown a{
+    display:block; /* moved to link */
+    font-weight: bold;
+    padding:0.6em 1em 0.5em 1em!important;
+    color: #696969;
+}
+
 .dropdown-new{
+	padding: 0px;
 	border:none;
 	box-shadow: none;
 	background-color: rgba(0,0,0,0)
@@ -147,11 +168,12 @@ input,textarea {
 	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.9) 60%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,0) 100%);/* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );/* IE6-9 */
     width: 340px;
-    height: 157px;
+    height: 22.75vh;
     padding: 20px 0;
     font-size: 14px;
     font-weight: bolder;
     margin: 0 auto;
+    cursor:pointer;
 }
 .li-container > a {
 	padding:0px !important;
@@ -423,4 +445,94 @@ textarea.input-ingreso{
 }
 .checkbox-round:checked {
     background-color: #ffcc44;
+}
+.como-info {
+	background-color: #f3d091;
+	min-width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.como-expand {
+	background-color: #414143;
+	min-width: 100%;
+	/*
+	display: flex;
+	justify-content: center;
+	*/
+}
+.como-info > div{
+	margin: 0 auto;
+}
+.thumbnail-hover > p{
+	margin: 0px;
+}
+.thumbnail {
+	display: block;
+    margin-left: auto;
+    height: 150px;
+    margin-right: auto;
+    width: 150px;
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+}
+.thumbnail-hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	display: block;
+    height: 150px;
+    width: 150px;
+    border: none;
+    margin-top: 20px;
+    position: absolute;
+    padding: 45px 30px;
+    text-align: center;
+}
+#uno-content {
+    display: none;
+}
+#uno-p:hover #uno-content {
+    display:block;
+}
+#dos-content {
+    display: none;
+}
+#dos-p:hover #dos-content {
+    display:block;
+}
+#tres-content {
+    display: none;
+}
+#tres-p:hover #tres-content {
+    display:block;
+}
+#cuatro-content {
+    display: none;
+}
+#cuatro-p:hover #cuatro-content {
+    display:block;
+}
+#cinco-content {
+    display: none;
+}
+#cinco-p:hover #cinco-content {
+    display:block;
+}
+.desc-como {
+	color: white;
+	font-size: 12px;
+}
+.desc-como > p {
+	margin:0px;
+}
+.inner-container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.virtual {
+	height: 16px;
+	margin-left: 10px;
+}
+.virtual-2 {
+	height: 25px;
+    margin-left: 10px;
 }

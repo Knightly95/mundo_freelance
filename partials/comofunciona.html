@@ -12,7 +12,7 @@
 	<script src="../js/angular-ui-router.min.js"></script>
 	<script src="../js/app.js"></script>
 </head>
-<body>
+<body ng-controller="comoCtrl">
 <nav class="navbar navbar-default">
 	  <div class="container">
 	    <div class="navbar-header">
@@ -25,10 +25,10 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="dropdown btn btn-default mark-button">
+        <li class="dropdown mydropdown">
 	          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
 	          <ul class="dropdown-menu dropdown-new text-center">
-	            <li class="text-center li-container" onclick="location.href='./comofunciona.html';">
+	            <li class="text-center li-container" ng-click="gotoComo()">
 	            	<div class="li-img"><img src="../assets/img/icon1.png" alt=""></div>
 	            	<a href="#">COMO FUNCIONA</a>
 	            </li>
@@ -40,11 +40,8 @@
 	            	<div class="li-img"><img src="../assets/img/icon4.png" alt=""></div>
 	            	<a href="#">SOBRE NOSOTROS</a>
 	            </li>
-	            <!--
-	            <div class="menu-end">
-	            	<br>
-	            </div>
-	            -->
+	            <li class="text-center li-container">
+                </li>
 	          </ul>
 	        </li>
 	        <li class="btn btn-default mark-button networks">
@@ -84,57 +81,100 @@
 	<a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
 </div>
 
-<div class="aboutus-info container">
+<div class="como-info container" id="thiscomo">
+	<div id="uno-p" ng-click="showInner(1)">
+		<img src="../assets/como/big1.png" class="thumbnail col-sm-2" alt="" id="uno-p">
+		<div class="thumbnail-hover" id="uno-content"> <p>Descripcion</p>	<p>del Proyecto</p></div>
+	</div>
+	<div id="dos-p" ng-click="showInner(2)">
+		<img src="../assets/como/big2.png" class="thumbnail col-sm-2" alt="" id="dos-p">
+		<div class="thumbnail-hover" id="dos-content"> <p>Validacion</p>	<p>del Proyecto</p></div>
+	</div>
+	<div id="tres-p" ng-click="showInner(3)">
+		<img src="../assets/como/big3.png" class="thumbnail col-sm-2" alt="" id="tres-p">
+		<div class="thumbnail-hover" id="tres-content"> <p>Asignacion</p>	<p>del Diseñador</p></div>
+	</div>
+	<div id="cuatro-p" ng-click="showInner(4)">
+		<img src="../assets/como/big4.png" class="thumbnail col-sm-2" alt="" id="cuatro-p">
+		<div class="thumbnail-hover" id="cuatro-content"><p>Desarrollo</p>	<p>del Proyecto</p></div>
+	</div>
+	<div id="cinco-p" ng-click="showInner(5)">
+		<img src="../assets/como/big5.png" class="thumbnail col-sm-2" alt="" id="cinco-p">
+		<div class="thumbnail-hover" id="cinco-content"> <span>Pagos</span></div>
+	</div>
+</div>
 
-	<div class="container-n1">
-		<div class="col-sm-6 upper-aboutus">
-			<div class="col-sm-6 inner-about">
-				<img src="../assets/aboutus/control.png" alt="" class="img about-upper-img">
-				<img  class="arrow-upper-about" src="../assets/aboutus/arrow-left.png" alt="" class="img img-responsive">
-			</div>
-			<div class="col-sm-6 padding-15">
-				<b>Mayor Control de Proyectos</b>
-				<p>Agilizamos la gestion de proyectos. Te asignamos al profesional aptop para tu proyecto y una vez validada la tarea, podras hacerle seguimiento facilmente a travez de nuestro panel.</p>
-			</div>
-		</div>
-		<div class="col-sm-6 upper-aboutus">
-			<div class="col-sm-6 inner-about">
-				<img src="../assets/aboutus/reduccion.png" alt="" class="img about-upper-img">
-				<img  class="arrow-upper-about" src="../assets/aboutus/arrow-left.png" alt="" class="img img-responsive">
-			</div>
-			<div class="col-sm-6 padding-15">
-				<b>Reduccion de Riesgos</b>
-				<p>Trabajando con nuestra red de profesionales certificados y nuestro panel de control, garantizamos que tu proyecto se realizara en tiempo, calidad y coste</p>
-			</div>
+<div class="como-expand container">
+	<div class="container inner-container" ng-show="activeInner === 1">
+		<img src="../assets/como/big1.png" alt="" class="col-sm-4">
+		<div class="col-xs-8 desc-como">
+			<br>
+			<p><b>Descripción del proyecto lo más detallada posible.</b></p>
+			<br>
+			<p>Facilita todos los detalles que puedas sobre tu proyecto.</p>
+			<p>Cuando mejor expliques lo que necesitas, mas rapido lo validaremos y recibiras una propuesta firme.</p>
+			<p>Por favor, indica el presupuesto aproximado del que dispones.</p>
+			<p>Su hay alguna referencia actual similar a tu proyecto, comunicalo.</p>
 		</div>
 	</div>
-
-	<div class="container-n2">
-		<div class="col-sm-8 lower-aboutus">
-			<div class="col-sm-12 inner-upper">
-				<b>Confidencialidad</b>
-				<p>La informacion de tu proyecto se compartira solamente con el profesional seleccionado. No aparecera publicamente en nuestra pagina</p>
-			</div>
-			<div class="col-sm-6 inner-lower">
-				<b>100% profesionales certificados</b>
-				<p>Validamos las habilidades experiencia y conocimientos de cada uno de los profesionales. Cada caso en particular lo analizamos con sumo cuidado e importancia.</p>
-			</div>
-			<div class="col-sm-6 inner-lower">
-				<b>Estimadora de Precios</b>
-				<p>Estimamos un presupuesto basandonos en los estandares internacionales, siempre pensando en el bienestar del cliente y del diseñador, asi garantizamos el mejor precio/calidad del mercado</p>
-			</div>
+	<div class="container inner-container" ng-show="activeInner === 2">
+		<img src="../assets/como/big2.png" alt="" class="col-sm-4">
+		<div class="col-xs-8 desc-como">
+			<br>
+			<p><b> Validación de tu proyecto </b></p>
+			<br>
+			<p>Después de que solicites tu proyecto, pasaras por el proceso de validacion personalizado por nuestro equipo de trabajo. Con esto nos aseguramos de que obtengas realmente una propuesta a medida de tu proyecto.</p>
+			<p>Este proceso es de duración variable, y dependera de la informacion que nos hagas llegar y de tu disponibilidad para responder nuestras dudas.</p>
 		</div>
-		<div class="col-sm-4 lower-right-aboutus">
-				<div class="col-sm-12 inner-about">
-					<img src="../assets/aboutus/optimizacion.png" alt="" class="img img-responsive about-right-img">
-					<img  class="arrow-right-about" src="../assets/aboutus/arrow-up.png" alt="" class="img img-responsive">
-				</div>
-			<div class="col-sm-12 padding-15">
-				<b>Optimizacion de costes</b>
-				<p>Contamos con una red de profesionales aptos para todo tipo de proyecto. Trabajamos con diseñadores de todo el mundo y gracias a eso encontraremos una solucion adaptada a tu presupuesto.</p>
-			</div>
+	</div>
+	<div class="container inner-container" ng-show="activeInner === 3">
+		<img src="../assets/como/big3.png" alt="" class="col-sm-4">
+		<div class="col-xs-8 desc-como">
+			<br>
+			<p><b>Asignación del personal capacitado</b></p>
+			<br>
+			<p>Una vez validado tu proyecto, lo asignaremos a un profesional certificado y conjuntamente te proporcionaremos una propuesta oficial.</p>
+			<p>La propuesta oficial contendrá una descripcion detallada del proyecto asi como de las tecnologias a aplicar para su realizacion, una explicación general de parte del personal encargado del proyecto, asi como de los pagos, tiempos de entrega y demas puntos esenciales para el desarrollo del proyecto.</p>
 		</div>
-	</div>	
+	</div>
+	<div class="container inner-container" ng-show="activeInner === 4">
+		<img src="../assets/como/big4.png" alt="" class="col-sm-4">
+		<div class="col-xs-8 desc-como">
+			<br>
+			<p><b>Desarrollo del proyecto</b></p>
+			<br>
+			<p>Te Asignamos en tu panel interno al profesional seleccionado</p>
+			<p>para que puedas interactuar con él desde el primer dia, resolver dudas, aceptar la propuesta y seguir el avance del proyecto de forma regular.</p>
+		</div>
+	</div>
+	<div class="container inner-container" ng-show="activeInner === 5">
+		<img src="../assets/como/big5.png" alt="" class="col-sm-4 img-pagos">
+		<div class="col-xs-8 desc-como">
+			<p><b>Pagos</b></p>
+			<br>
+			<p>Contamos con diferentes formas de pago para que se ajusten a tus posibilidades.</p>
+			<p>Elige una de las diferentes plataformas de pago que te ofrecemos</p>
+			<br>
+			<p>Moneda Virtual
+			<img src="../assets/como/paypal.png" alt="" class="virtual">
+			<img src="../assets/como/payoneer.png" alt="" class="virtual">
+			<img src="../assets/como/ingbank.png" alt="" class="virtual">
+			</p>
+			<br>
+			<p>Bancos Online
+			<img src="../assets/como/activo.png" alt="" class="virtual-2">
+			<img src="../assets/como/openbank.png" alt="" class="virtual">
+			</p>
+			<br>
+			<p>Pagos Online con tus TDC a nivel mundial
+			<img src="../assets/como/visa.png" alt="" class="virtual">
+			<img src="../assets/como/mastercard.png" alt="" class="virtual">
+			<img src="../assets/como/american.png" alt="" class="virtual-2">
+			</p>
+			<br>
+			<p>Paga en la moneda que prefieras, de la forma que quieras y por la plataforma de tu confianza.</p>
+		</div>
+	</div>
 </div>
 
 <div class="contact-info container">
